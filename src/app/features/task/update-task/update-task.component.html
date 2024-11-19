@@ -1,0 +1,33 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="d-flex justify-content-between ml-2">
+                <h3 class="mb-3">Update Task</h3>
+                <a [routerLink]="['/task/list']" class="btn btn-link">Back to list</a>
+            </div>
+            <form [formGroup]="taskFormGroup" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                    <label for="taskTitle" class="form-label">Title</label>
+                    <input type="text" class="form-control" formControlName="title" id="taskTitle" placeholder="Enter title" required>
+                    <div *ngIf="taskFormGroup.get('title')?.touched && taskFormGroup.get('title')?.invalid" class="text-danger">
+                        <small *ngIf="taskFormGroup.get('title')?.hasError('required')">Title is required.</small>
+                      </div>
+                </div>
+                <div class="mb-3">
+                    <label for="taskDescription" class="form-label">Description</label>
+                    <textarea class="form-control" formControlName="description" id="description" rows="4" placeholder="Enter description" required></textarea>
+                </div>
+
+                <div class="mb-3 form-group">
+                    <div class="form-check">
+                        <input class="form-check-input" formControlName="isCompleted" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          Is Completed
+                        </label>
+                      </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Update Task</button>
+            </form>
+        </div>
+    </div>
+</div>

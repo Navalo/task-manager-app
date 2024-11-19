@@ -1,0 +1,29 @@
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Title</th>
+              <th scope="col">Description</th>
+              <th scope="col">Completed</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let task of tasks">
+              <th scope="row">{{task.id}}</th>
+              <td>{{task.title}}</td>
+              <td>{{task.description}}</td>
+              <td>{{task.isCompleted}}</td>
+              <td>
+                <div class="d-flex align-items-center">
+                    <button class="btn btn-sm btn-warning mx-1" (click)="navigateToUpdate(task.id!)">Edit</button>
+                    <button class="btn btn-sm btn-danger" (click)="openDeleteModal(task.id!)">Delete</button>
+                </div>
+            </td>
+            </tr>
+          </tbody>
+    </table>
+  </div>
+
+  <app-delete-task-model (deleteConfirmed)="handleDelete()"></app-delete-task-model>

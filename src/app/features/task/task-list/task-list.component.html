@@ -1,0 +1,7 @@
+<div class="container">
+    <div class="d-flex justify-content-between mb-3">        
+        <h3>Tasks</h3>
+        <a [routerLink]="['/task/create']" class="btn btn-primary">Create Task</a>
+    </div>
+    <app-list-table [tasks]="tasks" (deleted)="loadTasks()"></app-list-table>
+</div>
