@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
+import { CanActivate, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 @Injectable({
@@ -16,13 +15,6 @@ export class AuthGuard implements CanActivate {
   canActivateChild(): boolean {
     return this.checkAuth();
   }
-
-  // canDeactivate(component: ProudctRatingComponent): boolean {
-  //   if (component.hasUnsavedChanges()) {
-  //     return window.confirm('You have unsaved changes. Do you really want to leave?');
-  //   }
-  //   return true;
-  // }
 
   canLoad(): boolean {
     return this.checkAuth();

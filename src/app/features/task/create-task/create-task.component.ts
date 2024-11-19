@@ -41,7 +41,6 @@ export class CreateTaskComponent {
         },
         error: (err) => {
           this.toastr.error(err.message)
-          
         }
       });
     }
