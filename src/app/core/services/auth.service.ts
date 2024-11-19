@@ -4,13 +4,13 @@ import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { ApiResponse } from 'src/app/shared/models/api-response';
 import { User } from '../models/user.model';
-
+import { environment } from '../../../environments/environment'
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private apiUrl = 'https://localhost:7211/api/Auth'; 
+  private apiUrl = `${environment.baseUrl}/Auth`; 
   
   constructor(private http: HttpClient) {}
 
